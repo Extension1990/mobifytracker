@@ -25,4 +25,14 @@ export class ApiService {
   getUsers () {
     return this.httpClient.get(this.REST_API + 'users');
   }
+
+  // Get all users
+  getUserById (id: string) {
+    return this.httpClient.get(this.REST_API + 'users/' + id);
+  }
+
+  // Login user
+  login(username: string, password: string) {
+    return this.httpClient.post(this.REST_API + 'auth/login/', {username, password});
+  }
 }

@@ -1,0 +1,17 @@
+<ion-header *ngIf="user">
+  <ion-toolbar>
+    <ion-title slot="end">{{user.username}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="user">
+  <ion-card>
+    <ion-item>
+      <ion-title>{{user.firstname}} {{user.lastname}}</ion-title>
+      <ion-label></ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>
