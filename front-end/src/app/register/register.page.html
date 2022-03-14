@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center ion-text-primary">Let's Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-title position="fixed" class="ion-text-center">Register</ion-title>
+    <ion-item class="password">
+      <ion-label position="fixed">username:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="password">
+      <ion-label position="fixed">firstname:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="password">
+      <ion-label position="fixed">lastname:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="password">
+      <ion-label position="fixed">password:</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-button class="submit-btn" expand="block" type="submit" [routerLink]="['/register']">Register</ion-button>
+    <p>Already have an account? <a [routerLink]="['/login']">Login</a></p>
+  </ion-card>
+</ion-content>

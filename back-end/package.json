@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "npm run dev",
-    "start": "node server.js",
+    "start": "node app.js",
     "dev": "nodemon"
   },
   "repository": {
@@ -19,11 +19,13 @@
   "author": "Extension Tlhareseng",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "config": "^3.3.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.20",
     "morgan": "^1.10.0"
   },

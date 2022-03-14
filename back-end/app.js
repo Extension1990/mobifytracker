@@ -20,7 +20,8 @@ const DB_URL = process.env.DB_URL || 'mongodb+srv://Extension:Koketso@mongodb202
 // get Port from .environment variable or use 3000
 const PORT = process.env.PORT || 3000;
 // routes
-const userRoute = require('./routes/users');
+const userRoute = require('./routes/usersRoute');
+const authRoute = require('./routes/authRoute');
 //import dotenv
 require('dotenv').config();
 
@@ -32,6 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // use routes
 app.use('/users', userRoute);
+app.use('/auth', authRoute);
 
 mongoose.Promise = global.Promise;
 mongoose
