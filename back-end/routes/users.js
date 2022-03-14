@@ -7,16 +7,16 @@ const {
   editUser,
   deleteUser,
   getUserById,
-} = require('../controllers/user');
+} = require('../controllers/users');
 
 // Get User
 router.get('/', getUsers);
 // Add User
-router.post('/', addUser);
+router.post('/add/', addUser);
 // Edit User
-router.put('/:id', editUser);
+router.put('/edit/:id', editUser);
 // Delete User
-router.delete('/:id', deleteUser);
+router.delete('/delete/:id', deleteUser);
 // get User by Id
 router.get('/:id', getUserById);
 

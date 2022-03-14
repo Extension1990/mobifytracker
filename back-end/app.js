@@ -7,12 +7,20 @@ const bodyParser = require('body-parser');
 
 // init app
 const app = express();
+
+// Enable CORS
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  next();
+});
 // db URL, ⚠️ use an environment variable for this
 const DB_URL = process.env.DB_URL || 'mongodb+srv://Extension:Koketso@mongodb2022@cluster0.ygkiz.mongodb.net/myChatApp?retryWrites=true&w=majority';
-// get Port from .environment variable or use 5000
+// get Port from .environment variable or use 3000
 const PORT = process.env.PORT || 3000;
 // routes
-const userRoute = require('./routes/user');
+const userRoute = require('./routes/users');
 //import dotenv
 require('dotenv').config();
 
@@ -23,7 +31,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // use routes
-app.use('/user', userRoute);
+app.use('/users', userRoute);
 
 mongoose.Promise = global.Promise;
 mongoose
