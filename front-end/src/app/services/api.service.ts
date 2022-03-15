@@ -31,8 +31,14 @@ export class ApiService {
     return this.httpClient.get(this.REST_API + 'users/' + id);
   }
 
+  // Register user
+  register(username: string, firstname: string, lastname: string, password: string) {
+    return this.httpClient.post(this.REST_API + 'auth/register', {username, firstname, lastname, password})
+  }
+
   // Login user
   login(username: string, password: string) {
     return this.httpClient.post(this.REST_API + 'auth/login/', {username, password});
   }
+
 }

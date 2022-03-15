@@ -10,11 +10,11 @@
     <form action="" method="post">
       <ion-item class="password">
         <ion-label position="fixed">Username:</ion-label>
-        <ion-input type="text" name="username" [ngModel]="username"></ion-input>
+        <ion-input type="text" name="username" [(ngModel)]="username"></ion-input>
       </ion-item>
       <ion-item class="password">
         <ion-label position="fixed">Password:</ion-label>
-        <ion-input type="password" name="password" [value]="password"></ion-input>
+        <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
       </ion-item>
       <ion-button class="submit-btn" expand="block" type="submit" (click)="login(username, password)">Log In</ion-button>
       <p>Don't have an account yet? <a [routerLink]="['/register']">Register</a></p>

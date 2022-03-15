@@ -7,23 +7,25 @@
 <ion-content>
   <ion-card>
     <ion-title position="fixed" class="ion-text-center">Register</ion-title>
-    <ion-item class="password">
-      <ion-label position="fixed">Username:</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item class="password">
-      <ion-label position="fixed">First name:</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item class="password">
-      <ion-label position="fixed">Last name:</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item class="password">
-      <ion-label position="fixed">Password:</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-    <ion-button class="submit-btn" expand="block" type="submit" [routerLink]="['/register']">Register</ion-button>
-    <p>Already have an account? <a [routerLink]="['/login']">Login</a></p>
+    <form action="" method="post">
+      <ion-item class="password">
+        <ion-label position="fixed">Username:</ion-label>
+        <ion-input type="text" name="username" [(ngModel)]="username"></ion-input>
+      </ion-item>
+      <ion-item class="password">
+        <ion-label position="fixed">First name:</ion-label>
+        <ion-input type="text" name="firstname" [(ngModel)]="firstname"></ion-input>
+      </ion-item>
+      <ion-item class="password">
+        <ion-label position="fixed">Last name:</ion-label>
+        <ion-input type="text" name="lastname" [(ngModel)]="lastname"></ion-input>
+      </ion-item>
+      <ion-item class="password">
+        <ion-label position="fixed">Password:</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-button class="submit-btn" expand="block" type="submit" (click)="register(username, firstname, lastname, password)">Register</ion-button>
+      <p>Already have an account? <a [routerLink]="['/login']">Login</a></p>
+    </form>
   </ion-card>
 </ion-content>
