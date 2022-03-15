@@ -1,3 +1,9 @@
-ion-control {
-    background-color: whitesmoke !important;
+.message {
+    background-color: whitesmoke;
+}
+.chat {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    margin: 0;
 }

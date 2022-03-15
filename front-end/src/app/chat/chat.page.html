@@ -8,11 +8,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-item *ngFor="let chat of chat">
-      <ion-title>{{chat.message}}</ion-title>
+  <!-- <ion-card> -->
+    <ion-item class="message" *ngFor="let chat of chat">
+      <p>{{chat.message}}</p>
     </ion-item>
-  </ion-card>
+  <!-- </ion-card> -->
 
 <ion-card class="chat" *ngIf="loggedUser">
   <form action="" method="post">

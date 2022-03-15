@@ -44,9 +44,13 @@ export class ChatPage implements OnInit {
   sendChatMessage(senderId: number, receiverId: number, message: string) {
     this.service.sendChatMessage(senderId, receiverId, message).subscribe((chatMessage) => {
       this.chatMessage = chatMessage;
+      this.reset();
       this.getChat(senderId, receiverId);
-      console.log(this.chatMessage)
     })
+  }
+
+  reset() {
+    this.message = ''
   }
 
 }
