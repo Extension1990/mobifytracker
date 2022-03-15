@@ -7,7 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="loggedUser">
+  <ion-item class="message" *ngFor="let message of groupChat">
+    <p>{{message.text}}</p>
+  </ion-item>
+  <ion-item class="message" *ngIf="chat?.length === 0">
+    <p class="nomessage">Start a new group chat.</p>
+  </ion-item>
 
   <ion-card class="chat" *ngIf="loggedUser">
     <form action="" method="post">

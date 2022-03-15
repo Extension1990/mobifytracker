@@ -11,6 +11,8 @@ export class GroupChatPage implements OnInit {
 
   groupId: number;
   group: any;
+  groupChat: any;
+  text: string;
   groupMessage: any;
   loggedUser: any;
   loggedInUser: any;
@@ -22,18 +24,31 @@ export class GroupChatPage implements OnInit {
     this.getGroupById(this.groupId);
     this.loggedInUser = localStorage.getItem("loggedInUser");
     this.loggedUser = JSON.parse(this.loggedInUser);
+    this.getGroupChat(this.groupId);
   }
 
   sendGroupMessage(senderId: number, groupId: number, text: string) {
     this.service.sendGroupMessage(senderId, groupId, text).subscribe((groupMessage) => {
       this.groupMessage = groupMessage;
-    })
+      this.getGroupChat(groupId);
+      this.reset();
+    });
+  }
+
+  getGroupChat(groupId: number) {
+    this.service.getGroupChat(groupId).subscribe((groupChat) => {
+      this.groupChat = groupChat;
+    });
   }
 
   getGroupById(groupId: number) {
     this.service.getGroupById(groupId).subscribe((group: any) => {
       this.group = group[0];
     });
+  }
+
+  reset() {
+    this.text = ''
   }
 
 }

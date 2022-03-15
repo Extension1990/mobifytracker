@@ -61,6 +61,11 @@ export class ApiService {
     return this.httpClient.get(this.REST_API + 'chats/' + userId + '/' + receiverId);
   }
 
+  // Get Chat
+  getGroupChat(groupId: number) {
+    return this.httpClient.get(this.REST_API + 'groupMessages/' + groupId);
+  }
+
   // Send Chat Message
   sendChatMessage(senderId: number, receiverId: number, message: string) {
     return this.httpClient.post(this.REST_API + 'send/chatMessage', {senderId, receiverId, message});
