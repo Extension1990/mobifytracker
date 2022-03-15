@@ -35,6 +35,18 @@ module.exports = function (app, connection) {
             }
         });
     });
+    // Get group by id
+    app.get('/group/:groupId', (req, res) => {
+        const group = req.body;
+        connection.query(`SELECT * FROM myChatApp.groups WHERE id ? = ${req.params.groupId}`, group, (err, rows) => {
+            if (err) {
+                res.status(400).send('Group Not Found')
+                console.log(err)
+            } else {
+                res.status(200).send(rows)
+            }
+        });
+    });
 
     // Get group messages
     app.get('/groupMessages/:groupId', (req, res) => {
@@ -49,11 +61,12 @@ module.exports = function (app, connection) {
     });
 
     // Get user chats
-    app.get('/chats/:userId/:receiverId', (req, res) => {
+    app.get('/chats/:senderId/:receiverId', (req, res) => {
         const messages = req.body;
-        connection.query(`SELECT * FROM myChatApp.messages WHERE userId ? = ${req.params.userId} && ${req.params.receiverId}`, messages, (err, rows) => {
+        connection.query(`SELECT * FROM myChatApp.messages WHERE senderId ? = ${req.params.senderId} && receiverId = ${req.params.receiverId}`, messages, (err, rows) => {
             if (err) {
                 res.status(400).send('Messages Not Found')
+                console.log(err)
             } else {
                 res.status(200).send(rows)
             }

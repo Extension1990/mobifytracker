@@ -1,7 +1,7 @@
 module.exports = function (app, connection) {
 
     // Add Group
-    app.post('/add/group/:userId', (req, res) => {
+    app.post('/add/group/', (req, res) => {
         const group = req.body;
         connection.query(`INSERT INTO myChatApp.groups SET ?`, group, (err, rows) => {
             if (err) {
@@ -12,12 +12,26 @@ module.exports = function (app, connection) {
         });
     });
 
-    // Send message
-    app.post('/send/message', (req, res) => {
+    // Send chat message
+    app.post('/send/chatMessage', (req, res) => {
         const message = req.body;
         connection.query('INSERT INTO myChatApp.messages SET ?', message, (err, rows) => {
             if (err) {
-                res.status(404).send('Couldn not send message.');
+                res.status(404).send('Couldn not send chat message.');
+                console.log(err)
+            } else {
+                res.status(200).send(rows);
+            }
+        });
+    });
+
+    // Send group message
+    app.post('/send/groupMessage', (req, res) => {
+        const message = req.body;
+        connection.query('INSERT INTO myChatApp.group_messages SET ?', message, (err, rows) => {
+            if (err) {
+                res.status(404).send('Couldn not send group message.');
+                console.log(err)
             } else {
                 res.status(200).send(rows);
             }
