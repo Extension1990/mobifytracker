@@ -19,12 +19,10 @@ export class LoginPage implements OnInit {
   }
 
   login(username: string, password: string) {
-    console.log(username, password)
     this.service.login(username, password).subscribe((user) => {
       this.loggedInUser = user;
       localStorage.setItem("loggedInUser", JSON.stringify(user));
       this.router.navigate(["/tabs/tab1"]);
-      console.log(this.loggedInUser)
     })
   }
 

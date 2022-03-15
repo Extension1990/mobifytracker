@@ -20,10 +20,8 @@ export class RegisterPage implements OnInit {
   }
 
   register(username: string, firstname: string, lastname: string, password: string) {
-    console.log(username, password)
     this.service.register(username, firstname, lastname, password).subscribe((user) => {
       this.router.navigate(["/login"]);
-      console.log(user)
     })
   }
 
