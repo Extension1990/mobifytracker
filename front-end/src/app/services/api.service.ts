@@ -66,4 +66,9 @@ export class ApiService {
     return this.httpClient.post(this.REST_API + 'send/chatMessage', {senderId, receiverId, message});
   }
 
+  // Send Group Message
+  sendGroupMessage(senderId: number, groupId: number, text: string) {
+    return this.httpClient.post(this.REST_API + 'send/groupMessage', {senderId, groupId, text});
+  }
+
 }

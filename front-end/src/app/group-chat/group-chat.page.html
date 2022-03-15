@@ -11,10 +11,10 @@
 
   <ion-card class="chat" *ngIf="loggedUser">
     <form action="" method="post">
-      <ion-input type="hidden" placeholder="Type your message" name="senderId" [(ngModel)]="loggedUser.id"></ion-input>
-      <ion-input type="hidden" placeholder="Type your message" name="id" [(ngModel)]="id"></ion-input>
-      <ion-input placeholder="Type your message" name="message" [(ngModel)]="message"></ion-input>
-      <ion-button class="submit-btn" expand="block" type="submit" (click)="sendChatMessage(loggedUser.id, id, message)">Send Message</ion-button>
+      <ion-input type="hidden" name="senderId" [(ngModel)]="loggedUser.id"></ion-input>
+      <ion-input type="hidden" name="groupId" [(ngModel)]="groupId"></ion-input>
+      <ion-input placeholder="Type your message" name="text" [(ngModel)]="text"></ion-input>
+      <ion-button class="submit-btn" expand="block" type="submit" (click)="sendGroupMessage(loggedUser.id, groupId, text)">Send Message</ion-button>
     </form>
   </ion-card>
 </ion-content>
