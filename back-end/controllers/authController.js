@@ -34,6 +34,7 @@ exports.register = (req, res, next) => {
 }
 
 exports.login = (req, res) => {
+    console.log(req)
     var username = req.body.username;
     var password = req.body.password;
 
@@ -52,7 +53,7 @@ exports.login = (req, res) => {
                 JWT_SECRET
             )
     
-            return res.json({ status: 'ok', data: {token, user} });
+            return res.json(user);
             
         }
     });
