@@ -26,6 +26,7 @@ export class AddGroupPage implements OnInit {
   addGroup(groupName: string, userId: number) {
     this.service.addGroup(groupName, userId).subscribe((group: any) => {
       this.group = group;
+      this.getGroups(userId);
       this.router.navigate(["/tabs/tab2"]);
     });
   }

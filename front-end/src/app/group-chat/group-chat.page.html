@@ -1,0 +1,20 @@
+<ion-header *ngIf="group">
+  <ion-toolbar>
+    <ion-title slot="end">{{group.groupName}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="chat" *ngIf="loggedUser">
+    <form action="" method="post">
+      <ion-input type="hidden" placeholder="Type your message" name="senderId" [(ngModel)]="loggedUser.id"></ion-input>
+      <ion-input type="hidden" placeholder="Type your message" name="id" [(ngModel)]="id"></ion-input>
+      <ion-input placeholder="Type your message" name="message" [(ngModel)]="message"></ion-input>
+      <ion-button class="submit-btn" expand="block" type="submit" (click)="sendChatMessage(loggedUser.id, id, message)">Send Message</ion-button>
+    </form>
+  </ion-card>
+</ion-content>

@@ -51,6 +51,11 @@ export class ApiService {
     return this.httpClient.get(this.REST_API + 'groups/' + userId);
   }
 
+  // Gets user groups
+  getGroupById(groupId: number) {
+    return this.httpClient.get(this.REST_API + 'group/' + groupId);
+  }
+
   // Get Chat
   getChat(userId: number, receiverId: number) {
     return this.httpClient.get(this.REST_API + 'chats/' + userId + '/' + receiverId);
