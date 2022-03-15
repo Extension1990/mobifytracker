@@ -7,11 +7,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="user">
+<ion-content>
   <ion-card>
-    <ion-item>
-      <ion-title>{{user.firstname}} {{user.lastname}}</ion-title>
-      <ion-label></ion-label>
+    <ion-item *ngFor="let chat of chat">
+      <ion-title>{{chat.message}}</ion-title>
     </ion-item>
   </ion-card>
+
+<ion-card class="chat" *ngIf="loggedUser">
+  <form action="" method="post">
+    <ion-input type="hidden" placeholder="Type your message" name="senderId" [(ngModel)]="loggedUser.id"></ion-input>
+    <ion-input type="hidden" placeholder="Type your message" name="id" [(ngModel)]="id"></ion-input>
+    <ion-input placeholder="Type your message" name="message" [(ngModel)]="message"></ion-input>
+    <ion-button class="submit-btn" expand="block" type="submit" (click)="sendChatMessage(loggedUser.id, id, message)">Send Message</ion-button>
+  </form>
+</ion-card>
 </ion-content>

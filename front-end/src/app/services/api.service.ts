@@ -26,8 +26,8 @@ export class ApiService {
     return this.httpClient.get(this.REST_API + 'users');
   }
 
-  // Get all users
-  getUserById (id: string) {
+  // Get user
+  getUserById (id: number) {
     return this.httpClient.get(this.REST_API + 'users/' + id);
   }
 
@@ -54,6 +54,11 @@ export class ApiService {
   // Get Chat
   getChat(userId: number, receiverId: number) {
     return this.httpClient.get(this.REST_API + 'chats/' + userId + '/' + receiverId);
+  }
+
+  // Send Chat Message
+  sendChatMessage(senderId: number, receiverId: number, message: string) {
+    return this.httpClient.post(this.REST_API + 'send/chatMessage', {senderId, receiverId, message});
   }
 
 }
