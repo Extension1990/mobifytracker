@@ -4,6 +4,7 @@ const router = express.Router();
 const {
   getUsers,
   addUser,
+  getUserGroups,
   editUser,
   deleteUser,
   getUserById,
@@ -11,6 +12,8 @@ const {
 
 // Get User
 router.get('/', getUsers);
+// Get User Groups
+router.get('/groups', getUserGroups);
 // Add User
 router.post('/add/', addUser);
 // Edit User

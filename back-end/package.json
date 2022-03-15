@@ -19,15 +19,25 @@
   "author": "Extension Tlhareseng",
   "license": "ISC",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-node8": "^1.2.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
     "config": "^3.3.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.1",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.9.20",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "socket.io": "^4.4.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "jest": "^26.1.0",

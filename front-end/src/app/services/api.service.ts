@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 export class ApiService {
 
   // Node/Express API
-  REST_API: string = 'http://localhost:3000/';
+  REST_API: string = 'http://127.0.0.1:3000/';
 
   // HTTP HeadersOptions
   headers = new HttpHeaders ({
@@ -33,12 +33,17 @@ export class ApiService {
 
   // Register user
   register(username: string, firstname: string, lastname: string, password: string) {
-    return this.httpClient.post(this.REST_API + 'auth/register', {username, firstname, lastname, password})
+    return this.httpClient.post(this.REST_API + 'register', {username, firstname, lastname, password})
   }
 
   // Login user
   login(username: string, password: string) {
-    return this.httpClient.post(this.REST_API + 'auth/login/', {username, password});
+    return this.httpClient.post(this.REST_API + 'login', {username, password});
+  }
+
+  // Gets user groups
+  getGroups() {
+    return this.httpClient.get(this.REST_API + 'groups');
   }
 
 }

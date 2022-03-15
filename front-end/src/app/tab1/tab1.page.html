@@ -1,7 +1,10 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" *ngIf="user">
   <ion-toolbar>
     <ion-title color="primary">
       My Chats
+    </ion-title>
+    <ion-title color="warning" slot="end">
+      {{user.username}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,7 +19,6 @@
       </ion-item-options>
   
       <ion-item [routerLink]="['/chat/', user._id]">
-        <img class="img-item" src="../../assets/img/profile-3.jpg" alt="">&nbsp;&nbsp;&nbsp;
         <ion-label>{{user.username}}</ion-label>
         <ion-icon name="chatbubble-outline" color="success"></ion-icon>
       </ion-item>

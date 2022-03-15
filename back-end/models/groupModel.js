@@ -1,21 +1,23 @@
 const mongoose = require('mongoose');
 
-// User model
+// Group model
 const groupSchema = new mongoose.Schema({
-    username: {
-      type: String
+    groupname: {
+      type: String,
     },
-    firstname: {
-      type: String
+    userid: {
+      type: String,
     },
-    lastname: {
-      type: String
-    },
-    password: {
-      type: String
-    }
+    members: [
+      member = {
+        memberid: String,
+        username: String,
+        firstname: String,
+        lastname: String,
+      }
+    ]
   }, {
-    collection: 'users'
+    collection: 'groups'
   });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Group', groupSchema);

@@ -21,7 +21,6 @@ export class ChatPage implements OnInit {
   getUserById(id: string) {
     this.service.getUserById(id).subscribe((user: any) => {
       this.user = user;
-      console.log(this.user)
     })
   }
 

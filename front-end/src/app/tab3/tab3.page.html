@@ -1,7 +1,7 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" *ngIf="user">
   <ion-toolbar>
     <ion-title color="primary">
-      Profile
+      {{user.firstname}} {{user.lastname}}
     </ion-title>
   </ion-toolbar>
 </ion-header>

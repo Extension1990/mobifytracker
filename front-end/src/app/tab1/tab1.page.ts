@@ -9,17 +9,20 @@ import { ApiService } from '../services/api.service';
 export class Tab1Page implements OnInit {
 
   users: any;
+  user: any;
+  loggedInUser: any;
 
   constructor(private service: ApiService) { }
 
   ngOnInit(): void {
     this.getUsers();
+    this.loggedInUser = localStorage.getItem("loggedInUser");
+    this.user = JSON.parse(this.loggedInUser);
   }
   
   getUsers() {
     this.service.getUsers().subscribe((users: any) => {
       this.users = users;
-      console.log(this.users);
     })
   }
 

@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 // User model
 const userSchema = new mongoose.Schema({
     username: {
-      type: String
+      type: String,
+      unique: true
     },
     firstname: {
       type: String
@@ -12,6 +13,9 @@ const userSchema = new mongoose.Schema({
       type: String
     },
     password: {
+      type: String
+    },
+    addedOn: {
       type: String
     }
   }, {

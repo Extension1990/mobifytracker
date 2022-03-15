@@ -22,6 +22,8 @@ const PORT = process.env.PORT || 3000;
 // routes
 const userRoute = require('./routes/usersRoute');
 const authRoute = require('./routes/authRoute');
+const groupRoute = require('./routes/groupsRoute');
+const channelRoute = require('./routes/channelRoute');
 //import dotenv
 require('dotenv').config();
 
@@ -34,6 +36,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // use routes
 app.use('/users', userRoute);
 app.use('/auth', authRoute);
+app.use('/groups', groupRoute);
+app.use('/channels', channelRoute);
 
 mongoose.Promise = global.Promise;
 mongoose

@@ -1,4 +1,5 @@
 const User = require('../models/userModel');
+var mongoose = require('mongoose');
 
 // returns Users
 exports.getUsers = (req, res, next) => {
@@ -9,6 +10,13 @@ exports.getUsers = (req, res, next) => {
       res.status(200).json(data);
     }
   });
+};
+
+// Get User Groups
+exports.getUserGroups = (req, res, next) => {
+  User.find({}).populate(group.$id).exec(function(err, data){
+    console.log(data)
+  })
 };
 
 // add User
