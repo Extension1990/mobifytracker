@@ -27,6 +27,7 @@ connection.connect((err) => {
 })
 
 require('./mysqlRoutes/get')(app, connection);
+require('./mysqlRoutes/post')(app, connection);
 require('./mysqlRoutes/auth')(app, connection);
 
 app.get('/', (req, res) => {

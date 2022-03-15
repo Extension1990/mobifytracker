@@ -42,8 +42,13 @@ export class ApiService {
   }
 
   // Gets user groups
-  getGroups() {
-    return this.httpClient.get(this.REST_API + 'groups');
+  getGroups(userId: number) {
+    return this.httpClient.get(this.REST_API + 'groups/' + userId);
+  }
+
+  // Get Chat
+  getChat(userId: number, receiverId: number) {
+    return this.httpClient.get(this.REST_API + 'chats/' + userId + '/' + receiverId);
   }
 
 }

@@ -9,15 +9,19 @@ import { ApiService } from '../services/api.service';
 export class Tab2Page implements OnInit {
 
   groups: any;
+  user: any;
+  loggedInUser: any;
 
   constructor(private service: ApiService) {}
 
   ngOnInit(): void {
-    this.getGroups();
+    this.loggedInUser = localStorage.getItem("loggedInUser");
+    this.user = JSON.parse(this.loggedInUser);
+    this.getGroups(this.user.id);
   }
 
-  getGroups() {
-    this.service.getGroups().subscribe((groups: any) => {
+  getGroups(userId: number) {
+    this.service.getGroups(userId).subscribe((groups: any) => {
       this.groups = groups;
       console.log(this.groups)
     })

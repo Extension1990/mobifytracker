@@ -36,10 +36,22 @@ module.exports = function (app, connection) {
         });
     });
 
-    // Get messages
-    app.get('/messages/:id', (req, res) => {
+    // Get group messages
+    app.get('/groupMessages/:groupId', (req, res) => {
         const messages = req.body;
-        connection.query(`SELECT * FROM myChatApp.messages WHERE senderId ? = ${req.params.id}`, messages, (err, rows) => {
+        connection.query(`SELECT * FROM myChatApp.group_messages WHERE groupId ? = ${req.params.groupId}`, messages, (err, rows) => {
+            if (err) {
+                res.status(400).send('Messages Not Found')
+            } else {
+                res.status(200).send(rows)
+            }
+        });
+    });
+
+    // Get user chats
+    app.get('/chats/:userId/:receiverId', (req, res) => {
+        const messages = req.body;
+        connection.query(`SELECT * FROM myChatApp.messages WHERE userId ? = ${req.params.userId} && ${req.params.receiverId}`, messages, (err, rows) => {
             if (err) {
                 res.status(400).send('Messages Not Found')
             } else {

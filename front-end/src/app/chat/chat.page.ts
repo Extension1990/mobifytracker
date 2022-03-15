@@ -15,12 +15,13 @@ export class ChatPage implements OnInit {
 
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
+    console.log(id)
     this.getUserById(id);
   }
 
   getUserById(id: string) {
     this.service.getUserById(id).subscribe((user: any) => {
-      this.user = user;
+      this.user = user[0];
     })
   }
 
