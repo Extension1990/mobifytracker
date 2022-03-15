@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center ion-text-primary">Add Group</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form action="" method="post">
+      <ion-item class="password">
+        <ion-label position="fixed">Group Name:</ion-label>
+        <ion-input type="text" name="groupName" [(ngModel)]="groupName"></ion-input>
+      </ion-item>
+        <ion-input *ngIf="user" type="password" type="hidden" name="userId" [(ngModel)]="user.id"></ion-input>
+      <ion-button class="submit-btn" expand="block" type="submit" (click)="addGroup(groupName, user.id)">Add Group</ion-button>
+    </form>
+  </ion-card>
+</ion-content>

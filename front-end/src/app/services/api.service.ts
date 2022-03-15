@@ -41,6 +41,11 @@ export class ApiService {
     return this.httpClient.post(this.REST_API + 'login', {username, password});
   }
 
+  // Add Group
+  addGroup(groupName: string, userId: number) {
+    return this.httpClient.post(this.REST_API + 'add/group', {groupName, userId});
+  }
+
   // Gets user groups
   getGroups(userId: number) {
     return this.httpClient.get(this.REST_API + 'groups/' + userId);
