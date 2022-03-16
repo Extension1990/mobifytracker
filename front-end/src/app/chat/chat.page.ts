@@ -23,7 +23,7 @@ export class ChatPage implements OnInit {
   constructor(private service: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['receiverId'];
     this.getUserById(this.id);
     this.loggedInUser = localStorage.getItem("loggedInUser");
     this.loggedUser = JSON.parse(this.loggedInUser);

@@ -1,15 +1,15 @@
-<ion-header [translucent]="true" *ngIf="user">
+<ion-header [translucent]="true" *ngIf="loggedUser">
   <ion-toolbar>
     <ion-title color="primary">
       My Chats
     </ion-title>
     <ion-title color="warning" slot="end">
-      {{user.username}}
+      {{loggedUser.username}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="loggedUser">
 
   <ion-list *ngFor="let user of users">
     <!-- Sliding item with text options on both sides -->
@@ -18,7 +18,7 @@
         <ion-item-option color="danger">Delete</ion-item-option>
       </ion-item-options>
   
-      <ion-item [routerLink]="['/chat/', user.id]">
+      <ion-item [routerLink]="['/chat/', loggedUser.id, user.id]">
         <ion-label>{{user.username}}</ion-label>
         <ion-icon name="chatbubble-outline" color="success"></ion-icon>
       </ion-item>

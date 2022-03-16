@@ -15,7 +15,7 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'chat/:id',
+    path: 'chat/:senderId/:receiverId',
     loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
   },
   {
