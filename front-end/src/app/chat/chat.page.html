@@ -8,9 +8,14 @@
 </ion-header>
 
 <ion-content *ngIf="user">
-    <ion-item class="message" *ngFor="let chat of chat">
-      <p>{{chat.message}}</p>
-    </ion-item>
+    <ion-row *ngFor="let chat of chat">
+      <ion-col></ion-col>
+      <ion-col><p>{{chat.message}}</p></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let reply of chatReplies">
+      <ion-col><p>{{reply.text}}</p></ion-col>
+      <ion-col></ion-col>
+    </ion-row>
     <ion-item class="message" *ngIf="chat?.length === 0">
       <p class="nomessage">Start a new chat with <b>{{user.username}}</b></p>
     </ion-item>

@@ -24,6 +24,18 @@ module.exports = function (app, connection) {
             }
         });
     });
+    // Send chat reply message
+    app.post('/send/chatReply', (req, res) => {
+        const reply = req.body;
+        connection.query('INSERT INTO myChatApp.replies SET ?', reply, (err, rows) => {
+            if (err) {
+                res.status(404).send('Couldn not send reply message.');
+                console.log(err)
+            } else {
+                res.status(200).send(rows);
+            }
+        });
+    });
 
     // Send group message
     app.post('/send/groupMessage', (req, res) => {

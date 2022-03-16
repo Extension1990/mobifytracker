@@ -63,7 +63,19 @@ module.exports = function (app, connection) {
     // Get user chats
     app.get('/chats/:senderId/:receiverId', (req, res) => {
         const messages = req.body;
-        connection.query(`SELECT * FROM myChatApp.messages WHERE senderId ? = ${req.params.senderId} && receiverId = ${req.params.receiverId}`, messages, (err, rows) => {
+        connection.query(`SELECT * FROM myChatApp.messages WHERE senderId ? = ${req.params.senderId} AND receiverId = ${req.params.receiverId}`, messages, (err, rows) => {
+            if (err) {
+                res.status(400).send('Messages Not Found')
+                console.log(err)
+            } else {
+                res.status(200).send(rows)
+            }
+        });
+    });
+    // Get user chats
+    app.get('/chats/replies/:senderId/:receiverId', (req, res) => {
+        const messages = req.body;
+        connection.query(`SELECT * FROM myChatApp.replies WHERE senderId ? = ${req.params.receiverId} AND receiverId = ${req.params.senderId}`, messages, (err, rows) => {
             if (err) {
                 res.status(400).send('Messages Not Found')
                 console.log(err)

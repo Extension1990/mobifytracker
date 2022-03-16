@@ -12,6 +12,7 @@ export class ChatPage implements OnInit {
   id: number;
   user: any;
   chat: any;
+  chatReplies: any;
   senderId: number;
   receiverId: number;
   message: string;
@@ -27,6 +28,7 @@ export class ChatPage implements OnInit {
     this.loggedInUser = localStorage.getItem("loggedInUser");
     this.loggedUser = JSON.parse(this.loggedInUser);
     this.getChat(this.loggedUser.id, this.id);
+    this.getChatReplies(this.loggedUser.id, this.id);
   }
 
   getUserById(id: number) {
@@ -39,6 +41,11 @@ export class ChatPage implements OnInit {
     this.service.getChat(userId, receiverId).subscribe((chat: any) => {
       this.chat = chat;
     })
+  }
+  getChatReplies(userId: number, receiverId: number) {
+    this.service.getChatReplies(userId, receiverId).subscribe((chatReplies: any) => {
+      this.chatReplies = chatReplies;
+    })  
   }
 
   sendChatMessage(senderId: number, receiverId: number, message: string) {
